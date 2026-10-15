@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10182f">
+  <meta name="description" content="An interactive Human Resource Management learning game about workplace disciplinary systems.">
+  <title>Discipline Detective | HRM Learning Adventure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#" id="brandHome" aria-label="Discipline Detective home">
+        <span class="brand-mark" aria-hidden="true">◆</span>
+        <span>DISCIPLINE <b>DETECTIVE</b></span>
+      </a>
+      <div class="topbar-tag">HRM • DIPLOMA LEVEL</div>
+    </header>
+
+    <main id="app">
+      <section class="screen hero-screen" id="homeScreen">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse-dot"></span> CASE FILE 010 • LEARNING ADVENTURE</p>
+          <h1>Fairness is the<br><span>ultimate clue.</span></h1>
+          <p class="hero-lede">A workplace case has gone off the rails. Investigate the evidence, make fair disciplinary decisions, and unlock the final case file.</p>
+          <div class="learning-card">
+            <div class="learning-icon" aria-hidden="true">◎</div>
+            <div>
+              <strong>Your mission</strong>
+              <p>Explain the purpose and principles of a fair disciplinary system, identify appropriate procedures, and choose proportionate responses to workplace misconduct.</p>
+            </div>
+          </div>
+          <div class="home-controls">
+            <label class="toggle-row"><input type="checkbox" id="untimedToggle" checked><span class="toggle-ui"></span><span><b>Untimed investigation</b><small>No countdown — focus on learning.</small></span></label>
+            <button class="primary-button" id="startButton">START INVESTIGATION <span aria-hidden="true">→</span></button>
+          </div>
+          <p class="microcopy">10 evidence challenges • Learn from every decision • No speed bonus</p>
+        </div>
+        <div class="hero-art" aria-label="Illustration of a detective desk with case files">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="case-folder">
+            <div class="folder-tab">CONFIDENTIAL</div>
+            <div class="folder-stamp">HR<br>CASE</div>
+            <div class="folder-lines"><i></i><i></i><i></i></div>
+            <span class="folder-number">#010</span>
+          </div>
+          <div class="magnifier"><span></span></div>
+          <div class="evidence evidence-a">✓</div><div class="evidence evidence-b">!</div>
+          <div class="art-caption"><span class="caption-dot"></span> THE PEOPLE & POLICY UNIT <small>FAIRNESS • EVIDENCE • CONSISTENCY</small></div>
+        </div>
+      </section>
+
+      <section class="screen instructions-screen hidden" id="instructionsScreen">
+        <div class="section-heading">
+          <p class="eyebrow">BEFORE YOU ENTER</p>
+          <h2>How to investigate</h2>
+          <p>Read each case carefully. Your decisions—not your speed—determine your learning score.</p>
+        </div>
+        <div class="instruction-grid">
+          <article class="instruction-card"><span class="instruction-number">01</span><div class="instruction-symbol">⌕</div><h3>Review the evidence</h3><p>Read the workplace scenario and the four possible actions.</p></article>
+          <article class="instruction-card"><span class="instruction-number">02</span><div class="instruction-symbol">↗</div><h3>Choose a response</h3><p>Select the best answer with your mouse, touch screen, or keyboard (1–4).</p></article>
+          <article class="instruction-card"><span class="instruction-number">03</span><div class="instruction-symbol">▣</div><h3>Learn and unlock</h3><p>Read the explanation. If you are incorrect, try again before continuing.</p></article>
+        </div>
+        <div class="rules-strip"><span>SCORING</span><p>One point for the correct first answer. You can retry incorrect answers without losing points. No points are awarded for speed.</p></div>
+        <div class="button-row"><button class="secondary-button" id="backHomeButton">← Home</button><button class="primary-button" id="beginButton">OPEN CASE 01 →</button></div>
+      </section>
+
+      <section class="screen game-screen hidden" id="gameScreen">
+        <div class="game-topline">
+          <div><p class="eyebrow">ACTIVE INVESTIGATION</p><h2 id="caseTitle">Case 01: The Missing Procedure</h2></div>
+          <button class="text-button" id="gameHomeButton">⌂ Home</button>
+        </div>
+        <div class="progress-panel">
+          <div class="progress-meta"><span id="progressLabel">EVIDENCE 1 OF 10</span><span id="scoreLabel">LEARNING SCORE: 0 / 10</span></div>
+          <div class="progress-track" role="progressbar" aria-label="Game progress" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="progressTrack"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="case-dots" id="caseDots" aria-label="Case progress"></div>
+        </div>
+        <div class="case-layout">
+          <aside class="case-sidebar">
+            <div class="evidence-board"><div class="board-top"><span class="red-pin"></span><span class="yellow-pin"></span><span class="green-pin"></span><span class="board-label">EVIDENCE BOARD</span></div>
+              <div class="file-icon">▤</div><p class="file-label">EMPLOYEE RELATIONS</p><strong id="sidebarCase">CASE 01</strong>
+              <div class="sidebar-rule"></div><p class="sidebar-note">Look for fairness, reliable facts, consistent treatment and a response that fits the misconduct.</p>
+              <div class="clue-tags"><span>FAIR PROCESS</span><span>FACTS FIRST</span></div>
+            </div>
+            <div class="tip-card"><span>DETECTIVE TIP</span><p id="detectiveTip">A fair process starts with facts, not assumptions.</p></div>
+          </aside>
+          <section class="question-panel">
+            <div class="question-kicker"><span class="question-icon">?</span><span id="questionCategory">CORE PRINCIPLE</span><span class="case-status" id="caseStatus">UNSOLVED</span></div>
+            <h3 id="questionText">Question appears here</h3>
+            <p class="scenario" id="scenarioText"></p>
+            <div class="answer-list" id="answerList"></div>
+            <div class="feedback hidden" id="feedbackBox" role="status" aria-live="polite">
+              <div class="feedback-icon" id="feedbackIcon">✓</div><div class="feedback-content"><strong id="feedbackTitle">Good detective work!</strong><p id="feedbackText"></p></div>
+            </div>
+            <div class="question-actions"><p class="keyboard-hint">TIP: PRESS <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> OR <kbd>4</kbd> TO SELECT</p><button class="primary-button hidden" id="continueButton">CONTINUE →</button></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="screen results-screen hidden" id="resultsScreen">
+        <div class="results-header"><div class="result-emblem">★</div><p class="eyebrow">INVESTIGATION COMPLETE</p><h2 id="resultHeadline">Case closed.</h2><p id="resultIntro">You reviewed all the evidence.</p></div>
+        <div class="result-score-card"><div><span class="result-label">LEARNING SCORE</span><div class="big-score"><span id="finalScore">0</span><small>/ 10</small></div></div><div class="result-message"><strong id="resultBand">Keep investigating</strong><p id="resultAdvice">Review the explanations below.</p></div></div>
+        <div class="results-breakdown"><div class="breakdown-heading"><h3>Your case notes</h3><span>KEY LEARNING POINTS</span></div><div id="reviewList" class="review-list"></div></div>
+        <div class="button-row results-buttons"><button class="secondary-button" id="resultsHomeButton">⌂ Home</button><button class="primary-button" id="restartButton">↻ PLAY AGAIN</button></div>
+        <p class="footer-note">Remember: follow your organisation’s policy and applicable employment law. A game scenario is for learning, not legal advice.</p>
+      </section>
+    </main>
+    <footer class="site-footer"><span>DISCIPLINE DETECTIVE</span><span>LEARN THE PRINCIPLES. MAKE FAIR DECISIONS.</span></footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
